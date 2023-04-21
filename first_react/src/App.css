@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .App-logo {
@@ -35,4 +39,61 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.container{
+  width: 500px;
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-check{
+  width: 100%;
+  border:#282c34 1px solid;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bottom-form{
+  width: 100%;
+  border:#282c34 1px solid;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top:20px;
+}
+
+.col-full{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.col-half{
+  width: 49%;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.col-half >input{
+  margin-top:10px;
+  width: 97%;
+}
+
+.button-div{
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
 }
