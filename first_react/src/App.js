@@ -6,11 +6,38 @@ import './App.css';
 function App() {
 
 
+  const [msgName, setMessage] = useState('');
+
+  const name = event => {
+    setMessage(event.target.value);
+  };
+
+  const [msgSurname, setSurnamemsg] = useState('');
+
+  const surname = event => {
+    setSurnamemsg(event.target.value);
+  };
+
+
+  const handleClick = event => {
+    event.preventDefault();
+
+    if (msgName.trim().length <= 0) {
+      alert('Ad Alanı boş geçilemez!');
+    }
+    else if (msgSurname.trim().length <= 0) {
+      alert('Soyad Alanı boş geçilemez!');
+    }
+
+  }
+
+
   const [rules, setRules] = useState(false)
-  const [name,setName]=useState('')
-  const [surname,setSurname]=useState('')
   const [email,setEmail]=useState('')
   const [age,setAge]=useState()
+
+  const [toggle,setToggle]=useState(false);
+
 
 
 
@@ -21,17 +48,18 @@ function App() {
       <label>
         Sözleşme Koşullarını Kabul Et
       </label>
-        <input type='checkbox' checked={rules} onChange={e=>setRules(e.target.checked)}/>
+        <input type='checkbox' checked={rules} onChange={e=>setRules(e.target.checked)} onClick={()=>setToggle(!toggle)}/>
       </div>
+      {toggle &&(
       <div className='bottom-form' visibled={!rules}>
         <div className='col-full'>
           <div className='col-half'>
            <label>Ad</label>
-           <input type='text' value={name} onChange={e=>setName(e.target.value)}/>
+           <input type='text' onChange={name}/>
           </div>
           <div className='col-half'>
            <label>Soyad</label>
-           <input type='text' value={surname} onChange={e=>setSurname(e.target.value)}/>
+           <input type='text' onChange={surname}/>
            </div>
         </div>
         <div className='col-full'>
@@ -46,16 +74,17 @@ function App() {
         </div>
         <div className='col-full'>
           <div className='button-div'>
-              <button>Kaydet</button>
+              <button onClick={handleClick}>Kaydet</button>
           </div>
         </div>
         <div className='col-full'>
           <div className='list-div'>
               <h2>Liste:</h2>
-              
+
           </div>
         </div>
       </div>
+      )}
       </div>
     </div>
   );
